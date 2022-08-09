@@ -16,8 +16,7 @@ class WechatWorkPushHandleController extends AdminController
 
     /**
      * @param $secret
-     * @param Request $request
-     * @return array
+     *
      * @throws InvalidArgumentException
      * @throws RuntimeException
      */
