@@ -24,7 +24,6 @@ class DcatWechatWorkPushServiceProvider extends ServiceProvider
 
     public function register()
     {
-        //
     }
 
     public function init()

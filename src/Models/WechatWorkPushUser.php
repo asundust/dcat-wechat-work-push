@@ -9,16 +9,16 @@ use Illuminate\Support\Carbon;
 /**
  * Asundust\DcatWechatWorkPush\Models\WechatWorkPushUser.
  *
- * @property int $id
- * @property string $name               用户的账户
- * @property string $sc_secret          用户的推送密钥
- * @property int $status             状态(0禁用1启用)
+ * @property int         $id
+ * @property string      $name               用户的账户
+ * @property string      $sc_secret          用户的推送密钥
+ * @property int         $status             状态(0禁用1启用)
  * @property string|null $corp_id            用户自定企业ID
  * @property string|null $agent_id           用户自定应用ID/agent_id
  * @property string|null $secret             用户自定应用Secret
- * @property bool $is_own_wechat_work
- * @property string $api_address
- * @property string $api_address_show
+ * @property bool        $is_own_wechat_work
+ * @property string      $api_address
+ * @property string      $api_address_show
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @mixin Eloquent
@@ -65,12 +65,12 @@ class WechatWorkPushUser extends Model
     // api_address_show
     public function getApiAddressShowAttribute(): string
     {
-        return config('app.url') . '/push/***';
+        return config('app.url').'/push/***';
     }
 
     // api_address
     public function getApiAddressAttribute(): string
     {
-        return config('app.url') . '/push/' . $this->sc_secret . '?title=我是标题&content=我是内容(可不填)&url=我是链接(可不填)&url_title=链接标题(可不填)';
+        return config('app.url').'/push/'.$this->sc_secret.'?title=我是标题&content=我是内容(可不填)&url=我是链接(可不填)&url_title=链接标题(可不填)';
     }
 }

@@ -33,13 +33,14 @@ class WechatWorkPushUserController extends AdminController
         $grid->column('id', '序号');
         $grid->column('name', '推送账号')->copyable();
         $grid->column('sc_secret', '推送密钥')->display(function ($scSecret) {
-            return '<a href="javascript:void(0);" class="grid-column-copyable text-muted" data-content="' . $scSecret . '" title="" data-placement="bottom" data-original-title="已复制!"><i class="fa fa-copy"></i></a>&nbsp;***';
+            return '<a href="javascript:void(0);" class="grid-column-copyable text-muted" data-content="'.$scSecret.'" title="" data-placement="bottom" data-original-title="已复制!"><i class="fa fa-copy"></i></a>&nbsp;***';
         });
         $grid->column('api_address', '推送Api地址')->display(function () {
             /* @var WechatWorkPushUser $this */
             $apiAddressShow = $this->api_address_show;
             $apiAddress = $this->api_address;
-            return '<a href="javascript:void(0);" class="grid-column-copyable text-muted" data-content="' . $apiAddress . '" title="" data-placement="bottom" data-original-title="已复制!"><i class="fa fa-copy"></i></a>&nbsp;' . $apiAddressShow;
+
+            return '<a href="javascript:void(0);" class="grid-column-copyable text-muted" data-content="'.$apiAddress.'" title="" data-placement="bottom" data-original-title="已复制!"><i class="fa fa-copy"></i></a>&nbsp;'.$apiAddressShow;
         });
         $grid->column('status', '账号状态')->switch();
         $grid->column('is_own_wechat_work', '自定企业微信')->bool();

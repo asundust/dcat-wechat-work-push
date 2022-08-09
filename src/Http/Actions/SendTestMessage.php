@@ -13,7 +13,7 @@ class SendTestMessage extends RowAction
     use WechatWorkPushSendMessageTrait;
 
     /**
-     * 标题
+     * 标题.
      *
      * @return string
      */
@@ -23,8 +23,8 @@ class SendTestMessage extends RowAction
     }
 
     /**
-     * @param Request $request
      * @return \Dcat\Admin\Actions\Response
+     *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
      * @throws \EasyWeChat\Kernel\Exceptions\RuntimeException
      */
@@ -45,18 +45,18 @@ class SendTestMessage extends RowAction
                 'agent_id' => DcatWechatWorkPushServiceProvider::setting('agent_id'),
                 'secret' => DcatWechatWorkPushServiceProvider::setting('secret'),
             ];
-            if (count(array_filter($config)) != 3) {
+            if (3 != count(array_filter($config))) {
                 return $this->response()->error('【默认配置】或【自定义配置】企业微信通道尚未配置');
             }
             $type = '默认';
         }
 
-        $title = '当前使用的【' . $type . '配置】企业微信通道发送的测试消息';
+        $title = '当前使用的【'.$type.'配置】企业微信通道发送的测试消息';
         $result = $this->send($config, $user->name, $title);
         if (0 == $result['code']) {
-            return $this->response()->success('使用【' . $type . '配置】企业微信通道发送消息成功');
+            return $this->response()->success('使用【'.$type.'配置】企业微信通道发送消息成功');
         }
 
-        return $this->response()->success('使用【' . $type . '配置】企业微信通道发送消息失败：' . $result['message']);
+        return $this->response()->success('使用【'.$type.'配置】企业微信通道发送消息失败：'.$result['message']);
     }
 }
