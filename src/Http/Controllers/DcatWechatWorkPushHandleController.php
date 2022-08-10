@@ -3,16 +3,16 @@
 namespace Asundust\DcatWechatWorkPush\Http\Controllers;
 
 use Asundust\DcatWechatWorkPush\DcatWechatWorkPushServiceProvider;
-use Asundust\DcatWechatWorkPush\Http\Traits\WechatWorkPushSendMessageTrait;
-use Asundust\DcatWechatWorkPush\Models\WechatWorkPushUser;
+use Asundust\DcatWechatWorkPush\Http\Traits\DcatWechatWorkPushSendMessageTrait;
+use Asundust\DcatWechatWorkPush\Models\DcatWechatWorkPushUser;
 use Dcat\Admin\Http\Controllers\AdminController;
 use EasyWeChat\Kernel\Exceptions\InvalidArgumentException;
 use EasyWeChat\Kernel\Exceptions\RuntimeException;
 use Illuminate\Http\Request;
 
-class WechatWorkPushHandleController extends AdminController
+class DcatWechatWorkPushHandleController extends AdminController
 {
-    use WechatWorkPushSendMessageTrait;
+    use DcatWechatWorkPushSendMessageTrait;
 
     /**
      * @param $secret
@@ -30,7 +30,7 @@ class WechatWorkPushHandleController extends AdminController
             return ['code' => 1, 'message' => '消息标题为空'];
         }
 
-        $user = WechatWorkPushUser::where('sc_secret', $secret)
+        $user = DcatWechatWorkPushUser::where('sc_secret', $secret)
             ->where('status', 1)
             ->first();
 

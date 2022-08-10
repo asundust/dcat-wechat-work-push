@@ -5,9 +5,9 @@ namespace Asundust\DcatWechatWorkPush\Http\Traits;
 use Asundust\DcatWechatWorkPush\DcatWechatWorkPushServiceProvider;
 
 /**
- * Trait WechatWorkPushSendMessageTrait.
+ * Trait DcatWechatWorkPushSendMessageTrait.
  */
-trait WechatWorkPushSendMessageTrait
+trait DcatWechatWorkPushSendMessageTrait
 {
     /**
      * 使用自定配置发送消息.

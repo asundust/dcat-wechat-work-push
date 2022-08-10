@@ -3,7 +3,7 @@
 namespace Asundust\DcatWechatWorkPush\Http\Controllers;
 
 use Asundust\DcatWechatWorkPush\Http\Actions\SendTestMessage;
-use Asundust\DcatWechatWorkPush\Models\WechatWorkPushUser;
+use Asundust\DcatWechatWorkPush\Models\DcatWechatWorkPushUser;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Grid\Displayers\Actions;
@@ -12,7 +12,7 @@ use Dcat\Admin\Http\Controllers\AdminController;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
-class WechatWorkPushUserController extends AdminController
+class DcatWechatWorkPushUserController extends AdminController
 {
     /**
      * Title for current resource.
@@ -28,7 +28,7 @@ class WechatWorkPushUserController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new WechatWorkPushUser());
+        $grid = new Grid(new DcatWechatWorkPushUser());
 
         $grid->column('id', '序号');
         $grid->column('name', '推送账号')->copyable();
@@ -36,7 +36,7 @@ class WechatWorkPushUserController extends AdminController
             return '<a href="javascript:void(0);" class="grid-column-copyable text-muted" data-content="'.$scSecret.'" title="" data-placement="bottom" data-original-title="已复制!"><i class="fa fa-copy"></i></a>&nbsp;***';
         });
         $grid->column('api_address', '推送Api地址')->display(function () {
-            /* @var WechatWorkPushUser $this */
+            /* @var DcatWechatWorkPushUser $this */
             $apiAddressShow = $this->api_address_show;
             $apiAddress = $this->api_address;
 
@@ -53,7 +53,7 @@ class WechatWorkPushUserController extends AdminController
 
         $grid->filter(function (Filter $filter) {
             $filter->equal('status', '账号状态')
-                ->radio(array_merge(['' => '全部'], WechatWorkPushUser::STATES));
+                ->radio(array_merge(['' => '全部'], DcatWechatWorkPushUser::STATES));
             $filter->equal('id', '序号');
             $filter->like('name', '推送账号');
             $filter->where('user_self_config', function (Builder $builder) {
@@ -70,7 +70,7 @@ class WechatWorkPushUserController extends AdminController
                         break;
                 }
             }, '自定企业微信')
-                ->radio(array_merge(['' => '全部'], WechatWorkPushUser::IS_OWN_WECHAT_WORK));
+                ->radio(array_merge(['' => '全部'], DcatWechatWorkPushUser::IS_OWN_WECHAT_WORK));
             $filter->between('created_at', '创建时间')->datetime();
             $filter->between('updated_at', '创建时间')->datetime();
         });
@@ -92,7 +92,7 @@ class WechatWorkPushUserController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new WechatWorkPushUser());
+        $form = new Form(new DcatWechatWorkPushUser());
 
         $form->text('name', '推送账号')
             ->rules('required')

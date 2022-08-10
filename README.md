@@ -49,7 +49,7 @@ composer require asundust/dcat-wechat-work-push
 企业微信消息推送
 └用户配置
 ```
-- `用户配置`的表名默认为`wechat_work_push_users`，目前不可更改
+- `用户配置`的表名默认为`dcat_wechat_work_push_users`，目前不可更改
 - 默认中间件组为`web`，目前不可更改
 - 目前不支持多语言，后期可以考虑增加
 

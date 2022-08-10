@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
 /**
- * Asundust\DcatWechatWorkPush\Models\WechatWorkPushUser.
+ * Asundust\DcatWechatWorkPush\Models\DcatWechatWorkPushUser.
  *
  * @property int         $id
  * @property string      $name               用户的账户
@@ -23,7 +23,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $updated_at
  * @mixin Eloquent
  */
-class WechatWorkPushUser extends Model
+class DcatWechatWorkPushUser extends Model
 {
     protected $fillable = ['name', 'sc_secret', 'status', 'corp_id', 'agent_id', 'secret'];
 
@@ -53,7 +53,7 @@ class WechatWorkPushUser extends Model
 
         $this->setConnection(config('admin.database.connection') ?: config('database.default'));
 
-        $this->setTable(config('admin.extensions.wechat-work-push.user_table', 'wechat_work_push_users'));
+        $this->setTable('dcat_wechat_work_push_users');
     }
 
     // is_own_wechat_work

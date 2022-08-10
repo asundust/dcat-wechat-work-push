@@ -3,14 +3,14 @@
 namespace Asundust\DcatWechatWorkPush\Http\Actions;
 
 use Asundust\DcatWechatWorkPush\DcatWechatWorkPushServiceProvider;
-use Asundust\DcatWechatWorkPush\Http\Traits\WechatWorkPushSendMessageTrait;
-use Asundust\DcatWechatWorkPush\Models\WechatWorkPushUser;
+use Asundust\DcatWechatWorkPush\Http\Traits\DcatWechatWorkPushSendMessageTrait;
+use Asundust\DcatWechatWorkPush\Models\DcatWechatWorkPushUser;
 use Dcat\Admin\Grid\RowAction;
 use Illuminate\Http\Request;
 
 class SendTestMessage extends RowAction
 {
-    use WechatWorkPushSendMessageTrait;
+    use DcatWechatWorkPushSendMessageTrait;
 
     /**
      * 标题.
@@ -31,7 +31,7 @@ class SendTestMessage extends RowAction
     public function handle(Request $request)
     {
         $id = $this->getKey();
-        $user = WechatWorkPushUser::find($id);
+        $user = DcatWechatWorkPushUser::find($id);
         if ($user->is_own_wechat_work) {
             $config = [
                 'corp_id' => $user->corp_id,

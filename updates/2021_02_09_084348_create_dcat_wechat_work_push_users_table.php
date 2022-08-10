@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWechatWorkPushUsersTable extends Migration
+class CreateDcatWechatWorkPushUsersTable extends Migration
 {
     /**
      * @return \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed|string|null
@@ -21,7 +21,7 @@ class CreateWechatWorkPushUsersTable extends Migration
      */
     public function up()
     {
-        $table = 'wechat_work_push_users';
+        $table = 'dcat_wechat_work_push_users';
         Schema::create($table, function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->index()->comment('用户的账户');
@@ -41,7 +41,7 @@ class CreateWechatWorkPushUsersTable extends Migration
      */
     public function down()
     {
-        $table = 'wechat_work_push_users';
+        $table = 'dcat_wechat_work_push_users';
         Schema::dropIfExists($table);
     }
 }
