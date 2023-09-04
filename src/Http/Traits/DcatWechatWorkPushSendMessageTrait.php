@@ -26,10 +26,10 @@ trait DcatWechatWorkPushSendMessageTrait
     {
         $message = $title;
         if ($content) {
-            $message .= "\n\n".$content;
+            $message .= "\n\n" . $content;
         }
         if ($url) {
-            $message .= "\n\n".'<a href="'.$url.'">'.($urlTitle ?: $url).'</a>';
+            $message .= "\n\n" . '<a href="' . $url . '">' . ($urlTitle ?: $url) . '</a>';
         }
 
         if (
